@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--========  FAVICON  =======-->
+  <link rel="shortcut icon" href="pics/favicon.png" type="image/x-icon">
+
+  <!--========  REMIXICON  =======-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!--============  CSS  ==============-->
+  <link rel="stylesheet" href="style.css">
+  <title>Responsive NFT website</title>
+</head>
+<body>
+  <!--========  HEADER  ========-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        nft.yo
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link ">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="market.html" class="nav__link">Market</a>
+          </li>
+          <li class="nav__item">
+            <a href="community.html" class="nav__link active-link">Community</a>
+          </li>
+          <li class="nav__item">
+            <a href="aboutus.html" class="nav__link">About Us</a>
+          </li>
+        </ul>
+
+        <!-- Close button -->
+        <div class="nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+        <img src="pics/ethereum-img.png" alt="nav image" class="nav__img">
+      </div>
+      <!-- Toggle button -->
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-menu-4-line"></i>
+      </div>
+    </nav>
+  </header>
+  <!--=========  MAIN  =========-->
+  <main class="main">
+    <!--======  HOME  ======-->
+
+    <section class="home">
+
+      <div class="home__shape-small"></div>
+      <div class="home__shape-big-1"></div>
+      <div class="home__shape-big-2"></div>
+      <img src="pics/shape-bg.png" alt="" class="home__shape-bg">
+
+      <div class="community__container container">
+        <div class="grid__container">
+          <div class="grid">
+            <h3>Community</h3>
+          </div>
+          <div class="social__contact">
+            <div class="contact__card insta__card">
+              <div>
+                <i class="ri-instagram-fill"></i>
+              </div>
+              <div class="discription">
+                <h4>Instagram</h4>
+                <h5>@nftyo</h5>
+              </div>
+            </div>
+            <div class="contact__card twit__card">
+              <div><i class="ri-twitter-fill"></i></div>
+              <div class="discription">
+                <h4>Twitter</h4>
+                <h5>@nftyo</h5>
+              </div>
+            </div>
+            <div class="contact__card mess__card">
+              <div><i class="ri-message-2-line"></i></div>
+              <div class="discription">
+                <h4>Submissions</h4>
+                <h5>info@nftyo.com</h5>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="contact__card discord__card">
+              <div><i class="ri-discord-fill"></i></div>
+              <div class="discription">
+                <h4>Discord</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="message__container">
+          <h4>Send Message</h4>
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name">
+          <input type="email" placeholder="Email">
+          <textarea name="" placeholder="Your Message"></textarea>
+          <button type="submit">SUBMIT</button>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+
+  <!--=======  SCROLLREVEAL  ========-->
+  <script src="scrollreveal.min.js"></script>
+
+  <!--=========  JS  =========-->
+  <script src="script.js"></script>
+</body>
+</html>

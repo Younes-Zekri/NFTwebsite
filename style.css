@@ -1,0 +1,878 @@
+/*===========  GOOGLE FONTS  =============*/
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&display=swap');
+
+/*==========  VARIABLES CSS  ===========*/
+:root{
+  --header-height: 3.5rem;
+
+  /*======  COLORS  ======*/
+  /* Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(203, 71%, 60%);
+  --second-color: hsl(277, 56%, 68%);
+  --text-color: hsl(203, 8%, 98%);
+  --text-color-light: hsl(203, 8%, 80%);
+  --body-color: hsl(259, 20%, 18%);
+
+  /*====== Font and typography ======*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Oxanium', cursive;
+  --biggest-font-size: 2.25rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+
+  /*=====  Font weight  =====*/
+  --font-semi-bold: 600;
+
+  /*=====  z index  =====*/
+  --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+  :root{
+    --biggest-font-size: 4rem;
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=======  BASE  ========*/
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+/*====== CSS CLASSES ========*/
+.container{
+  max-width: 1024px;
+  margin-inline: 1.5rem;
+}
+.main{
+  overflow: hidden;    /* for the animations */
+}
+
+/*====== HEADER & NAV ========*/
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  transition: background .3s;
+}
+.nav{
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__logo,
+.nav__toggle,
+.nav__link,
+.nav__close{
+  color: var(--text-color);
+}
+.nav__logo{
+  font-size: var(--h2-font-size);
+}
+.nav__toggle{
+  display: inline-flex;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .nav__menu{
+    position: fixed;
+    background-color: var(--body-color);
+    width: 100%;
+    top: -100%;
+    left: 0;
+    box-shadow: 0 3px 8px hsla(203, 71%, 4%, .2);
+    padding: 4rem 0 3.5rem;
+    transition: top .4s;
+    overflow: hidden;
+  }
+}
+.nav__list{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 2rem;
+}
+.nav__link{
+  font-weight: var(--font-semi-bold);
+  transition: color .4s;
+}
+.nav__link:hover{
+  color: var(--first-color);
+}
+.nav__close,
+.nav__img{
+  position: absolute;
+}
+.nav__close{
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.nav__img{
+  width: 80px;
+  left: 1rem;
+  bottom: -2rem;
+  filter: drop-shadow(0 4px 20px hsla(203, 73%, 60%, .5));
+}
+
+/*  Show menu  */
+.show-menu{
+  top: 0;
+}
+/*  Active link  */
+.active-link{
+  background: linear-gradient(90deg,
+              var(--second-color) 0%,
+              var(--first-color) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*  Change background header  */
+.header-bg{
+  background-color: var(--body-color);
+  box-shadow: 0 2px 4px hsla(203, 71%, 15%, .5);
+}
+
+/*==========  HOME  ============*/
+.home{
+  position: relative;
+}
+.home__container{
+  position: relative;
+  padding: 3rem 0 2rem;
+}
+.home__title{
+  font-size: var(--biggest-font-size);
+  margin-bottom: .75rem;
+}
+.home__title span{
+  background: linear-gradient(90deg,
+              var(--second-color) 0%,
+              var(--first-color) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.home__description{
+  color: var(--text-color-light);
+  margin-bottom: 1.5rem;
+}
+.home__button{
+  display: inline-block;
+  background: linear-gradient(95deg,
+              var(--second-color) 0%,
+              var(--first-color) 100%);
+  padding: 1rem 2rem;
+  border-radius: .25rem;
+  color: var(--text-color);
+  font-weight: var(--font-semi-bold);
+  transition: box-shadow .4s;
+}
+.home__button:hover{
+  box-shadow: 0 8px 48px hsla(203, 71%, 25%, .5);
+}
+.home__group{
+  position: relative;
+}
+.home__images,
+.home__data{
+  display: grid;
+}
+.home__img-eth{
+  width: 100px;
+  justify-self: center;
+}
+.home__img-eth img{
+  filter: drop-shadow(0 4px 32px hsla(203, 71%, 60%, .5));
+  animation: float-eth 4s ease-in-out infinite;
+}
+.home__img-orbe{
+  width: 280px;
+  justify-self: center;
+}
+.home__data{
+  position: absolute;
+  top: -3rem;
+  right: 1.5rem;
+  row-gap: 1.25rem;
+}
+.home__data-number{
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+}
+.home__data-subtitle{
+  font-size: var(--smaller-font-size);
+}
+
+.home__footer,
+.home__footer-time{
+  display: flex;
+}
+.home__footer{
+  margin-top: 2.5rem;
+  column-gap: 2.5rem;
+}
+.home__footer-title,
+.home__footer-subtitle{
+  font-size: var(--smaller-font-size);
+  display: block;
+}
+.home__footer-title{
+  margin-bottom: .75rem;
+}
+.home__footer-number{
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: .25rem;
+}
+.home__footer-time{
+  column-gap: 1.25rem;
+}
+.home__footer-counter{
+  text-align: center;
+}
+
+/* Shapes */
+.home__shape-small,
+.home__shape-big-1,
+.home__shape-big-2{
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+.home__shape-small{
+  width: 150px;
+  height: 150px;
+  background-color: var(--first-color);
+  top: -2.5rem;
+  left: -1.5rem;
+}
+.home__shape-big-1,
+.home__shape-big-2{
+  width: 250px;
+  height: 250px;
+}
+.home__shape-big-1{
+  background-color: var(--first-color);
+  top: 16rem;
+  right: -6.5rem;
+}
+.home__shape-big-2{
+  background-color: var(--second-color);
+  left: -3.5rem;
+  bottom: -4rem;
+}
+.home__shape-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: soft-light;
+  opacity: .3;
+}
+
+@keyframes float-eth{
+  0%{
+    transform: translateY(.5rem);
+  }
+  50%{
+    transform: translateY(2rem);
+  }
+  100%{
+    transform: translateY(.5rem);
+  }
+}
+/*======  BREAKPOINTS  =====*/
+
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .container{
+    margin-inline: 1rem;
+  }
+  .home__img-eth{
+    width: 80px;
+  }
+  .home__img-orbe{
+    width: 230px;
+  }
+  .home__data{
+    right: .5rem;
+  }
+  .home__footer{
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .home__img-eth{
+    width: 120px;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 767px) {
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__toggle,
+  .nav__close,
+  .nav__img{
+    display: none;
+  }
+  .nav__list{
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+  .home__container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-content: center;
+    justify-content: center;
+    gap: 2rem 4rem;
+  }
+  .home__group{
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    align-self: center;
+  }
+  .home__img-orbe{
+    width: 380px;
+  }
+  .home__img-eth{
+    width: 150px;
+  }
+  .home__group,
+  .home__title{
+    margin-top: -4rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .home__title{
+    margin-bottom: 1rem;
+  }
+  .home__description{
+    margin-bottom: 3rem;
+  }
+  .home__img-orbe{
+    width: 500px;
+  }
+  .home__img-eth{
+    width: 200px;
+  }
+  .home__data{
+    top:3rem;
+    right: 0;
+    row-gap: 2.5rem;
+  }
+  .home__shape-small,
+  .home__shape-big-1,
+  .home__shape-big-2{
+    filter: blur(132px);
+  }
+  .home__shape-small{
+    width: 300px;
+    height: 300px;
+    top: -5rem;
+    left: -2rem;
+  }
+  .home__shape-big-1,
+  .home__shape-big-2{
+    width: 400px;
+    height: 400px;
+  }
+  .home__shape-big-1{
+    top: 10rem;
+    right: -3.5rem;
+  }
+  .home__shape-big-2{
+    left: 14rem;
+    bottom: -10rem;
+  }
+}
+
+@media screen and (min-width: 1048px) {
+  .container{
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .home__shape-big-2{
+    left: 28rem;
+  }
+  .home__group,
+  .home__title{
+    margin-top: -7rem;
+  }
+}
+
+
+/*=========  MARKET  ===========*/
+
+.market__container{
+  position: relative;
+  padding: 1rem 0 4rem;
+}
+.nft__card{
+  width: auto;
+  height: 25rem;
+  margin: 1.2rem auto;
+  max-width: 16rem;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+.nft__pic img{
+  border-radius: 30px 30px 0 0;
+  height: 220px;
+  width: 260px;
+}
+.nft__content{
+  margin: .5rem 1.2rem .5rem 1.2rem;
+  color: #000;
+}
+.card__title{
+  display: flex;
+  position: relative;
+  margin-bottom: .5rem;
+}
+.card__title img{
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  margin-right: 0.15rem;
+}
+.card__title h6{
+  margin: 0.3rem;
+  letter-spacing: .8px;
+  font-size: .7rem;
+}
+.card__title i{
+  color: rgb(5, 192, 192);
+  margin-top: .1rem;
+  font-size: 1rem;
+}
+.card__content{
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: .7rem;
+}
+.card__content h4{
+  width: 100%;
+  font-size: 13.5px;
+}
+.card__content img{
+  width: 14px;
+  height: 18px;
+  margin-top: -2px;
+  margin-left: 2.3rem;
+}
+.nft__price{
+  width: 100%;
+  margin-top: 25px;
+}
+.nft__price span{
+  font-size: 12px;
+  font-weight: 600;
+  color: gray;
+}
+.nft__price div{
+  display: flex;
+  background-color: rgba(128, 128, 128, 0.096);
+  padding: 1rem .3rem;
+  border-radius: 6px;
+}
+.price h6{
+  width: 80%;
+  margin-top: 3px;
+}
+.price span{
+  color: #000;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+/*======  BREAKPOINTS  =====*/
+
+/* For medium devices */
+@media screen and (min-width: 600px) {
+  .market__container{
+    padding: 3rem 0 4rem;
+  }
+  .market__container{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .nft__card{
+    display: inline-flex;
+    margin-left: 24px;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 900px) {
+  .market__container{
+    padding: 4rem 0 4rem;
+  }
+  .market__container{
+    width: 100%;
+    max-width: 900px;
+  }
+  .nft__card{
+    margin: 20px;
+  }
+}
+
+/*=========  COMMUNITY  ===========*/
+.home{
+  padding-top: 80px;
+}
+.grid{
+  background-image: linear-gradient(rgba(43, 35, 85, 0.671),rgba(255, 255, 255, 0.575))
+  ,url("pics/grid.png");
+  width: 100%;
+  height: 60px;
+  border-radius: 30px 30px;
+  text-align: center;
+}
+.grid h3{
+  width: auto;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+}
+.contact__card{
+  width: 100%;
+  height: 70px;
+  border-radius: 30px 30px;
+  background-color: rgba(0, 0, 0, 0.705);
+  border: 1px solid black;
+  margin-top: 20px;
+  position: relative;
+  display: inline-block;
+}
+.contact__card div{
+  position: absolute;
+}
+.contact__card i{
+  font-size: 50px;
+  position: absolute;
+  margin: 9px 25px;
+}
+.discription{
+  width: 93%;
+  height: 100%;
+  margin-left: 75px;
+  font-size: 16px;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+}
+.discord__card{
+  background-color: #7289da7e;
+  border: none;
+}
+.discord__card .discription{
+  margin-top: 10px;
+}
+
+/*  Message div  */
+.message__container{
+  width: 100%;
+  height: 350px;
+  margin: 5rem .5rem 0 .5rem;
+  position: relative;
+  display: grid;
+}
+.message__container h4{
+  color: hsl(0, 0%, 100%);
+  margin: 1rem 0 .5rem 0;
+  font-size: 16px;
+}
+.message__container input, textarea{
+  width: 95%;
+  font-size: .9rem;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.685);
+  outline: none;
+  color: white;
+  padding: .9rem 0;
+  resize: none;
+  overflow-y: hidden;
+}
+.message__container button{
+  width: 130px;
+  height: 37px;
+  border-radius: 30px 30px;
+  margin: 1.5rem 3rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.774);
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/*======  BREAKPOINTS  =====*/
+
+/*=====  For medium Devices  =====*/
+@media screen and (min-width: 500px) {
+  .grid{
+    height: 90px;
+  }
+  .grid h3{
+    padding-top: 35px;
+    font-size: 24px;
+    color: rgba(240, 255, 255, 0.788);
+  }
+  .message__container button{
+    width: 180px;
+    height: 45px;
+    font-size: 15px;
+    margin-left: -.4rem;
+  }
+  .message__container{
+    /* height: 400px; */
+  }
+}
+
+/*=====  for Larger Devices  =====*/
+@media screen and (min-width: 767px) {
+  .grid{
+    height: 300px;
+  }
+  .grid h3{
+    padding-top: 9.2rem;
+    font-size: 44px;
+    color: black;
+  }
+  .social__contact{
+    margin-left: 50px;
+    position: relative;
+  }
+  .contact__card{
+    width: 27%;
+    height: 100px;
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+    margin: -50px 0 0 30px;
+  }
+  .contact__card i{
+    margin-top: 23px;
+  }
+  .discription{
+    margin: 15px 0 0 75px;
+  }
+  .discord__card{
+    width: 855px;
+    height: 100px;
+    margin: 30px 0 0 80px;
+    background-color: #7289da5e;
+  }
+  .discord__card i{
+    font-size: 60px;
+    margin: 22px 0 0 25px;
+  }
+  .discord__card h4{
+    font-size: 26px;
+    margin: 10px 0 0 10px;
+  }
+  .message__container h4{
+    font-size: 26px;
+  }
+  .message__container input,textarea{
+    font-size: 18px;
+  }
+  .message__container button{
+    width: 200px;
+  }
+}
+
+
+
+/*=========  ABOUT US  ==========*/
+.about__container h1{
+  font-size: 24px;
+  margin: 1rem 0 2rem 1rem;
+  background: linear-gradient(45deg,#ff0058,hsl(277, 56%, 68%),hsl(203, 71%, 60%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.about__container h3{
+  font-size: 22px;
+  margin: 1rem;
+  margin-top: 2rem;
+  color: rgb(255, 255, 255);
+  position: relative;
+}
+.about__container p{
+  color: #000;
+  position: relative;
+  padding: 0 0 6rem 1rem;
+  width: 210px;
+  background: linear-gradient(90deg,#ffffff,hsl(277, 39%, 62%),hsl(203, 71%, 60%),#ff0058);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 16px;
+  filter: contrast(5);
+}
+.more__content img{
+  width: 240px;
+  height: 150px;
+  border-radius: 25px 25px;
+  box-shadow: 10px 10px 10px hsla(277, 39%, 62%, 0.308);
+  display: flex;
+  margin: -330px 0 5rem 40%;
+}
+.more__content h1{
+  margin: 10rem 0 1rem 1rem;
+}
+.about__container .img2 img{
+  width: 220px;
+  height: 140px;
+  position: relative;
+  border-radius: 20px 20px;
+  margin-left: 1rem;
+  margin-top: -4.5rem;
+  box-shadow: 1px 1px 0px hsla(277, 39%, 62%, 0.363),
+  0px 10px 10px hsla(246, 41%, 87%, 0.199),
+  0px 10px 10px hsla(277, 39%, 62%, 0.288),
+  0px 10px 10px hsla(251, 53%, 42%, 0.39),
+  0px 10px 10px hsla(277, 39%, 62%, 0.349),
+  0px 10px 10px hsla(234, 60%, 36%, 0.199);
+  /* border: 5px solid hsla(277, 39%, 62%, 0.486);
+  background: hsla(277, 39%, 62%, 0.295);
+  outline: 5px solid hsla(277, 39%, 62%, 0.205);
+  box-shadow:
+      0 0 0 10px hsla(277, 39%, 62%, 0.151),
+      0 0 0 15px hsla(277, 39%, 62%, 0.212); */
+}
+.img2{
+  padding-bottom: 1rem;
+  justify-content: center;
+}
+.img2 h3{
+  position: relative;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+.footer span{
+  display: none;
+}
+
+
+/*======  BREAKPOINTS  =====*/
+
+/*===  for medium devices  ===*/
+@media screen and (min-width: 500px){
+  .more__content img{
+    width: 300px;
+    height: 200px;
+    margin-left: 45%;
+    margin-bottom: -5rem;
+    margin-top: 4.9rem;
+  }
+  .about__container h1,h3,p{
+    text-align: center;
+  }
+  .about__container h3{
+    text-align: center;
+    margin-left: 28px;
+  }
+  .about__container p{
+    width: 260px;
+    margin-bottom: -25rem;
+  }
+  .more__content p{
+    margin: auto;
+  }
+  .about__container .img2 img{
+    width: 280px;
+    height: 160px;
+    display: block;
+    margin: 0 auto;
+    margin-top: -4.5rem;
+    margin-bottom: 3rem;
+  }
+  .footer span{
+    display: none;
+  }
+}
+
+/*===  For Larger Devices  ===*/
+@media screen and (min-width: 767px) {
+  .about__container .firstp{
+    margin-left: 15%;
+    margin-top: 2rem;
+    width: 280px;
+  }
+  .more__content img{
+    margin-left: 52%;
+    width: 350px;
+    height: 210px;
+    animation: float-img 5s ease-in-out infinite;
+  }
+  .more__content p{
+    justify-content: center;
+  }
+  .footer span{
+    margin-left: 35%;
+    display: block;
+  }
+  .img2{
+    padding-bottom: 5rem;
+  }
+  @keyframes float-img{
+    0%{
+      transform: translateX(.5rem);
+    }
+    50%{
+      transform: translateX(4rem);
+    }
+    100%{
+      transform: translateX(.5rem);
+    }
+  }
+}
